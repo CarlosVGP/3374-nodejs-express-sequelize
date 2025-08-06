@@ -1,8 +1,11 @@
-const database = require("../models");
-class PessoaController {
-  static async listarTodos(req, res) {
-    const pessoas = await database.Pessoa.findAll();
-    res.status(200).send(pessoas);
+const Controller = require("./Controller.js");
+const PessoaServices = require("../services/PessoaServices.js");
+
+const pessoaServices = new PessoaServices();
+
+class PessoaController extends Controller {
+  constructor() {
+    super(pessoaServices);
   }
 }
 
