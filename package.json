@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Repositório do curso de API com Node.js, Express e Sequelize",
   "main": "server.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
@@ -11,10 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "4.18.2"
+    "express": "4.18.2",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.3"
   },
   "devDependencies": {
-    "eslint": "8.46.0",
+    "@eslint/js": "^9.32.0",
+    "eslint": "^8.46.0",
+    "globals": "^16.3.0",
     "nodemon": "3.0.1"
   }
 }
