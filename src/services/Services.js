@@ -1,8 +1,8 @@
 const dataSource = require("../models");
 
 class Services {
-  constructor(nomeDoModel) {
-    this.model = nomeDoModel;
+  constructor(model) {
+    this.model = model;
   }
 
   async pegaTodosOsRegistros() {

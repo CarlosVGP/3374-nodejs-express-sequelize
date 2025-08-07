@@ -1,5 +1,6 @@
 [
   {
+    id: 1,
     nome: "Solange Estudante",
     email: "solange@email.com",
     cpf: "63058133022",
@@ -9,6 +10,7 @@
     updatedAt: new Date(),
   },
   {
+    id: 2,
     nome: "Igor Estudante",
     email: "igor@email.com",
     cpf: "99018205028",
@@ -18,6 +20,7 @@
     updatedAt: new Date(),
   },
   {
+    id: 3,
     nome: "Aline Estudante",
     email: "aline@email.com",
     cpf: "92797497066",
@@ -27,6 +30,7 @@
     updatedAt: new Date(),
   },
   {
+    id: 4,
     nome: "Fernando Estudante",
     email: "fernando@email.com",
     cpf: "17195730000",
@@ -36,6 +40,7 @@
     updatedAt: new Date(),
   },
   {
+    id: 5,
     nome: "Ricardo Docente",
     email: "ricardo@email.com",
     cpf: "06946507061",
@@ -45,11 +50,32 @@
     updatedAt: new Date(),
   },
   {
+    id: 6,
     nome: "Dine Docente",
     email: "dine@email.com",
     cpf: "80941142078",
     ativo: true,
     role: "docente",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 7,
+    nome: "Carlos Docente",
+    email: "carlos@email.com",
+    cpf: "70945042308",
+    ativo: true,
+    role: "docente",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 8,
+    nome: "Gabriel Estudante",
+    email: "estudante@email.com",
+    cpf: "07258987456",
+    ativo: true,
+    role: "estudante",
     createdAt: new Date(),
     updatedAt: new Date(),
   },
