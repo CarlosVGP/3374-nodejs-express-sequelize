@@ -9,7 +9,9 @@ class Controler {
         await this.entidadeService.pegaTodosOsRegistros();
       return res.status(200).json(listaDeRegistros);
     } catch (error) {
-      //error
+      res
+        .status(500)
+        .json({ message: "Internal server error", erro: error.message });
     }
   };
 
@@ -40,7 +42,9 @@ class Controler {
         registro: resultado,
       });
     } catch (error) {
-      //error
+      res
+        .status(500)
+        .json({ message: "Internal server error", erro: error.message });
     }
   };
 
@@ -57,7 +61,9 @@ class Controler {
       }
       res.status(200).json({ message: "Atualizado com sucesso" });
     } catch (error) {
-      //error
+      res
+        .status(500)
+        .json({ message: "Internal server error", erro: error.message });
     }
   };
 
@@ -65,17 +71,12 @@ class Controler {
     const id = req.params.id;
 
     try {
-      const registro = await this.entidadeService.pegaRegistroPorId(id);
-      if (!registro) {
-        res.status(500).json({
-          message:
-            "Não foi possivel excluir o registro, pois ele não foi encontrado",
-        });
-      }
       await this.entidadeService.excluiRegistro(id);
       res.status(200).json({ message: "Registro excluido com sucesso" });
     } catch (error) {
-      //error
+      res
+        .status(500)
+        .json({ message: "Internal server error", erro: error.message });
     }
   };
 }
