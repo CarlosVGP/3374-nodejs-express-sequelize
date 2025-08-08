@@ -17,27 +17,32 @@ class Controler {
 
   pegaPorId = async (req, res) => {
     const id = req.params.id;
-    const registro = await this.entidadeService.pegaRegistroPorId(id);
-    if (!registro) {
-      res.status(404).json({
-        message: "Registro não encontrado",
-      });
+    try {
+      const registro = await this.entidadeService.pegaRegistroPorId(id);
+      if (!registro) {
+        return res.status(404).json({
+          message: "Registro não encontrado",
+        });
+      }
+      return res
+        .status(200)
+        .json({ message: "Registro localizado", registro: registro });
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: "Internal server error", erro: error.message });
     }
-    await this.entidadeService.excluiRegistro(id);
-    res
-      .status(200)
-      .json({ message: "Registro localizado", registro: registro });
   };
 
   cadastraDados = async (req, res) => {
     try {
       const resultado = await this.entidadeService.criaRegistro(req.body);
       if (!resultado) {
-        res.status(500).json({
+        return res.status(500).json({
           message: "Não foi possivel criar o novo registro no banco",
         });
       }
-      res.status(201).json({
+      return res.status(201).json({
         message: "Registro criado com sucesso",
         registro: resultado,
       });
@@ -57,9 +62,9 @@ class Controler {
         Number(id)
       );
       if (!isUpdated) {
-        res.status(400).json({ message: "Registro não atualizado" });
+        return res.status(400).json({ message: "Registro não atualizado" });
       }
-      res.status(200).json({ message: "Atualizado com sucesso" });
+      return res.status(200).json({ message: "Atualizado com sucesso" });
     } catch (error) {
       res
         .status(500)
@@ -72,7 +77,7 @@ class Controler {
 
     try {
       await this.entidadeService.excluiRegistro(id);
-      res.status(200).json({ message: "Registro excluido com sucesso" });
+      return res.status(200).json({ message: "Registro excluido com sucesso" });
     } catch (error) {
       res
         .status(500)

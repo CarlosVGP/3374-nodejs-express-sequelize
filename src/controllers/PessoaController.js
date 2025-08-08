@@ -21,6 +21,28 @@ class PessoaController extends Controller {
         .json({ message: "Internal server error", erro: error.message });
     }
   }
+
+  async pegaTodasPessoas(req, res) {
+    try {
+      const listaPessoas = await pessoaServices.pegaPessoasEscopoTodos();
+      return res.status(200).json(listaPessoas);
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: "Internal server error", erro: error.message });
+    }
+  }
+
+  async pegaTodasPessoasDesabilitadas(req, res) {
+    try {
+      const listaPessoas = await pessoaServices.pegaPessoasDesabilitadas();
+      return res.status(200).json(listaPessoas);
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: "Internal server error", erro: error.message });
+    }
+  }
 }
 
 module.exports = PessoaController;

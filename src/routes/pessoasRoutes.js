@@ -8,6 +8,8 @@ const matriculaController = new MatriculaController();
 const router = Router();
 router
   .get("/pessoas", pessoaController.pegaTodos)
+  .get("/pessoas/ativas", pessoaController.pegaTodasPessoas)
+  .get("/pessoas/desativadas", pessoaController.pegaTodasPessoasDesabilitadas)
   .get("/pessoas/:id", pessoaController.pegaPorId)
   .post("/pessoas", pessoaController.cadastraDados)
   .put("/pessoas/:id", pessoaController.atualizaDados)
